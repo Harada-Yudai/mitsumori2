@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-dark flex-nowrap">
+    <div class="navbar-brand">
+      <%= link_to image_tag("/assets/logo.png", class:"furima-icon", style:"width:130px; height:40px;"), root_path %>
+    </div>
+  <% if current_user.nil? %>
+    <div class="btn-toolbar flex-nowrap" role="toolbar" aria-label="Toolbar with button groups">
+      <%= link_to 'ログイン', new_session_path , class:"mr-3 btn btn-secondary text-nowrap" %>
+      <%= link_to '新規登録', new_user_path , class:"btn btn-secondary text-nowrap" %>
+    </div>
+  <% else %>
+     <div class="btn-toolbar flex-nowrap" role="toolbar" aria-label="Toolbar with button groups">
+      <%= link_to current_user.last_name+" "+current_user.first_name, root_path, class:"mr-3 btn btn-secondary text-nowrap"%>
+      <%= link_to 'ログアウト', session_path(current_user.id), method: :delete, class:"btn btn-secondary text-nowrap"%>
+    </div>
+  <% end %>
+</nav>
