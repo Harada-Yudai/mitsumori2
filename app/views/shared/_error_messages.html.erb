@@ -2,8 +2,11 @@
 <div class="error-alert">
   <ul>
     <% model.errors.full_messages.each do |message| %>
-    <li class='error-message'><%= message %></li>
+    <li class='error-message text-danger'><%= message %></li>
     <% end %>
+    <% if @error ==1  %>
+        <li class='error-message'><%= "Password is wrong" %></li>
+      <%end%>
   </ul>
 </div>
 <% end %>

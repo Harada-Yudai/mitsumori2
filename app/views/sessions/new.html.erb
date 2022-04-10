@@ -6,6 +6,9 @@
 <div class="justify-content-center " style="height:300px;">
   <div style="height:100%;" class="bg-light border border-dark rounded-lg container my-2 py-2 d-flex align-items-center justify-content-center ">
     <%= form_for(:session, url: sessions_path) do |f| %>
+    <div class="text-danger">
+      <%= flash[:notice] %>
+    </div>
       <div class="my-2">
         <label class="form-text">メールアドレス</label>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

@@ -1,0 +1,29 @@
+<%= render "shared/header" %>
+<div class="d-flex justify-content-center mt-3 ">
+  <h1 class="border-bottom border-danger text-center font-weight-bold" style="width:400px;">お客様情報詳細</h1>
+</div>
+
+
+<div class="justify-content-center " style="height:90%;">
+  <div style="height:100%; " class="bg-light border border-dark container rounded-lg my-2 py-2">
+    <% if @project.blank? %>
+      <%= form_with model: @client, url: user_client_path(current_user.id), local: true do |f| %>   
+        <%= render 'shared/error_messages', model: f.object %>
+        <%= render 'shared/client_edit',{ f: f }%>
+      <%end%>
+    <%elsif @item.blank? %>
+      <%= form_with model: @client, url: user_client_path(current_user.id,project_id:@project.id), local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <%= render 'shared/client_edit',{ f: f }%>
+      <%end%>
+    <%else%>
+      <%= form_with model: @client, url: user_client_path(current_user.id,project_id:@project.id,item_id:@item.id), local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <%= render 'shared/client_edit',{ f: f }%>
+      <%end%>
+    <%end%>
+  </div>
+  <div class="mt-2 d-flex justify-content-center"> 
+    <%= link_to "削除", user_client_path, method: :delete,class:"btn btn-danger text-nowrap btn-lg border border-dark"%>
+  </div>  
+</div>

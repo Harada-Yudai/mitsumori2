@@ -1,0 +1,27 @@
+<%= render "shared/header" %>
+<div class="d-flex justify-content-center mt-3 ">
+  <h1 class="border-bottom border-danger text-center font-weight-bold" style="width:400px;">御見積編集</h1>
+</div>
+<div class="d-flex justify-content-center mt-3">
+  <h4 class="font-weight-bold mt-1"><%= "#{@client.cli_company}"+"　"+"#{@client.cli_last_name}"+" "+"#{@client.cli_first_name}"+"　"+"様"%></h4>
+</div>
+<div class="justify-content-center " style="height:90%;">
+  <%if @item.blank? %>
+    <%= form_with model: @project, url: user_client_project_path(current_user.id,client_id:@client.id), local: true do |f| %>
+      <div style="height:100%; " class="bg-light border border-dark container rounded-lg  py-2 justify-content-center ">
+        <%= render 'shared/error_messages', model: f.object %>
+        <%= render 'shared/project_edit',{ f: f }%>
+      </div>
+    <% end %>
+  <%else%>
+    <%= form_with model: @project, url: user_client_project_path(current_user.id,client_id:@client.id,item_id:@item.id), local: true do |f| %>
+      <div style="height:100%; " class="bg-light border border-dark container rounded-lg  py-2 justify-content-center ">
+        <%= render 'shared/error_messages', model: f.object %>
+        <%= render 'shared/project_edit',{ f: f }%>
+      </div>
+    <% end %>
+  <%end%>
+  <div class="mt-2 d-flex justify-content-center"> 
+    <%= link_to "削除", user_client_project_path, method: :delete,class:"btn btn-danger text-nowrap btn-lg border border-dark"%>
+  </div>
+<div>
