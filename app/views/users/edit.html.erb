@@ -4,8 +4,8 @@
 </div>
 <div class="justify-content-center " style="height:90%;">
   <div style="height:100%; " class="bg-light border border-dark container rounded-lg my-2 py-2 justify-content-center ">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_with model: @user, url: user_path(current_user.id), local: true do |f| %>   
+      <%= render 'shared/error_messages', model: f.object %>
       <div class="d-flex">   
         <div class="mr-5 my-2 " style="width:40%;">
           <%= f.label :姓%> <em></em><br />
@@ -38,28 +38,6 @@
       <div class="my-2">
         <%= f.label :メールアドレス %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"◯◯◯@example.com" ,style:"width:40%;"%>
-      </div>
-
-      <div class="my-2">
-        <%= f.label :パスワード %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-
-      <div class="my-2">
-        <%= f.label :パスワード（確認用）%><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <div class="">
-        <%= f.label :情報を更新するために、現在のパスワードを入力してください %> <i></i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password" %>
       </div>
 
       <div class="mt-3 d-flex justify-content-center">

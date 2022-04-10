@@ -29,7 +29,7 @@
     </div>
   </h5>
   <div>
-    <%= link_to 'お客様登録', "new_user_client_path(current_user.id)", class:"mr-3 btn btn-primary text-nowrap border border-dark" %>
+    <%= link_to 'お客様登録', new_user_client_path(current_user.id), class:"mr-3 btn btn-primary text-nowrap border border-dark" %>
   </div>
   <% if @clients.blank? %>
   <%else%>
@@ -58,8 +58,8 @@
       <h1 class="border-bottom border-danger text-center font-weight-bold" style="width:500px;">ログインしてください</h1>
     </div>
     <div style="height:50%;" class="bg-light border border-dark rounded-lg container my-2 py-2 d-flex align-items-center justify-content-center ">
-        <%= link_to 'ログイン', "###", class:"mx-5 btn btn-primary text-nowrap btn-lg" %>
-        <%= link_to '新規登録', "###", class:"mx-5 btn btn-primary text-nowrap btn-lg" %>
+        <%= link_to 'ログイン', new_session_path, class:"mx-5 btn btn-primary text-nowrap btn-lg" %>
+        <%= link_to '新規登録', new_user_path , class:"mx-5 btn btn-primary text-nowrap btn-lg" %>
     </div>
   </div>
 <% end %>
