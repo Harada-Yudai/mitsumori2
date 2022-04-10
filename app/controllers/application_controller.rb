@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def login_required
-    flash[:notice] = "・Please Login "
+    flash[:notice] = "・ログインしてください "
     redirect_to new_session_path unless current_user
   end
 

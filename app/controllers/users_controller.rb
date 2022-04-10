@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :login_required, only: ["index","new"]
+  skip_before_action :login_required, only: ["index","new","create"]
 
   def edit
     @user= User.find(params[:id])
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path
     else
-      redirect_to
+      render :new
     end
   end
 
