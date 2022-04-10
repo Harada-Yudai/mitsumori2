@@ -15,23 +15,23 @@
       <%= render 'shared/error_messages', model: f.object %>
           
       <div class="">
-        <%= f.label :商品名 %> <em></em><br />
+        <%= f.label :商品名 %> <span class="text-danger">（必須）</span><em></em><br />
         <%= f.text_field :item_name, autofocus: true, placeholder:"商品名",style:"width:40%;"%>
       </div>
 
-      <div class="">
-        <%= f.label :価格 %> <em></em><br />
+      <div class="my-1">
+        <%= f.label :価格 %><span class="text-danger">（必須）</span><em></em><br />
         <%= f.text_field :item_price, placeholder:"価格"%>
-        <span>円</span>
+        <%=""%>
       </div>
 
-      <div class="bg-info">
-        <%= f.label :数量 %> <em></em><br />
+      <div class="my-1">
+        <%= f.label :数量 %> <span class="text-danger">（必須）</span><em></em><br />
         <%= f.text_field :item_amount, placeholder:"数量"%>
         <%="個"%>
       </div>
 
-      <div class="my-2" >
+      <div class="my-1" >
         <%= f.label :商品説明 %> <em></em><br />
         <%= f.text_area :item_info, placeholder:"内容", style:"width:100%;"%>
       </div>
